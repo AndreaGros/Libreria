@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Libreria.Core.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 
 namespace Libreria.Web.Controllers
@@ -16,6 +18,23 @@ namespace Libreria.Web.Controllers
             var connectionString = _configuration.GetConnectionString("DefaultConnection");
             ViewBag.Title = "Utenti";
             return View();
+        }
+
+        public IActionResult Create()
+        {
+            ViewBag.Title = $"Aggiungi Utente";
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Utente utente)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(utente);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Libreria.Core.Models
 {
-    internal class Utente
+    public class Utente
     {
         public int Id { get; set; }
         public DateOnly DataNascita { get; set; }
