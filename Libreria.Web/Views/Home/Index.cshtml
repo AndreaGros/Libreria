@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home - Libreria";
+    var libri = new List<dynamic> {
+        new { Titolo = "Il Nome della Rosa", Autore = "Umberto Eco", Prezzo = 15.90 },
+        new { Titolo = "1984", Autore = "George Orwell", Prezzo = 12.50 },
+        new { Titolo = "La coscienza di Zeno", Autore = "Italo Svevo", Prezzo = 10.00 }
+    };
+}
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <h1>Benvenuti alla Libreria</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a asp-controller="Utente" asp-action="Index">Utenti</a></li>
+                <li><a href="/Contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>I nostri libri più popolari</h2>
+            <ul>
+                @foreach (var libro in libri)
+                {
+                    <li>
+                        <strong>@libro.Titolo</strong> di @libro.Autore - €@libro.Prezzo
+                    </li>
+                }
+            </ul>
+        </section>
+
+        <section>
+            <h2>Contattaci</h2>
+            <p>Email: info@libreria.it</p>
+            <p>Telefono: +39 012 345 6789</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Libreria. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+</html>
