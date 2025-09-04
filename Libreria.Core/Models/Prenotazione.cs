@@ -12,6 +12,6 @@ namespace Libreria.Core.Models
         public int IdUtente { get; set; }
         public int IdLibro { get; set; }
 
-        public string LibroPrenotato { get; set; }
+        public string? LibroPrenotato { get; set; }
     }
 }

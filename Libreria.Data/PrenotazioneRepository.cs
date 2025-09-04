@@ -1,4 +1,5 @@
 ﻿using Libreria.Core.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,17 @@ namespace Libreria.Data
                 });
             }
             return prenotazioni;
+        }
+
+        public int Add(Prenotazione prenotazione)
+        {
+            string query = "INSERT INTO Prenotazioni (IdUtente, IdLibro) VALUES(@IdUtentePlaceholder, @IdLibroPlaceholder)";
+            var parameters = new[]
+            {
+                new SqlParameter("@IdUtentePlaceholder", prenotazione.IdUtente),
+                new SqlParameter("@IdLibroPlaceholder", prenotazione.IdLibro),
+            };
+            return _db.ExecuteNonQuery(query, parameters);
         }
     }
 }

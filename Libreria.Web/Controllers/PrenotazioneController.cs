@@ -9,12 +9,14 @@ namespace Libreria.Web.Controllers
     {
         private readonly PrenotazioneRepository _repoPrenotazioni;
         private readonly LibroRepository _repoLibri;
+        private readonly UtenteRepository _repoUtenti;
 
         public PrenotazioneController(IConfiguration configuration)
         {
             string connStr = configuration.GetConnectionString("DefaultConnection");
             _repoPrenotazioni = new PrenotazioneRepository(connStr);
             _repoLibri = new LibroRepository(connStr);
+            _repoUtenti = new UtenteRepository(connStr);
         }
         public IActionResult Index()
         {
@@ -27,10 +29,26 @@ namespace Libreria.Web.Controllers
             return View(prenotazioni);
         }
 
-        public IActionResult Reservation()
+        public IActionResult Create()
         {
+            ViewBag.SelectUtenti = new SelectList(_repoUtenti.GetAll(), "Id", "Nome");
             ViewBag.SelectLibri = new SelectList(_repoLibri.GetNotAvaiables(), "Id", "Titolo");
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Prenotazione prenotazione)
+        {
+            if (ModelState.IsValid)
+            {
+                _repoPrenotazioni.Add(prenotazione);
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.SelectUtenti = new SelectList(_repoUtenti.GetAll(), "Id", "Nome");
+            ViewBag.SelectLibri = new SelectList(_repoLibri.GetNotAvaiables(), "Id", "Titolo");
+
+            return View(prenotazione);
         }
     }
 }
