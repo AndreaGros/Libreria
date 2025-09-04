@@ -1,0 +1,25 @@
+﻿<div class="text-center">
+    <h1 class="display-4">Gestione Biblioteca</h1>
+    <p class="lead">Seleziona un'operazione da eseguire:</p>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="list-group">
+
+            <h5 class="list-group-item list-group-item-dark">Prestito Libri</h5>
+            <a asp-page="/Prestiti/Crea" class="list-group-item list-group-item-action list-group-item-info">
+                📖 Gestisci un prestito
+            </a>
+
+            <h5 class="list-group-item list-group-item-dark mt-4">Prenotazione Libri</h5>
+            <a asp-controller="Prenotazione" asp-action="Reservation">
+                📝 Prenota un libro non disponibile
+            </a>
+            <a asp-controller="Prenotazione" asp-action="All">
+                👀 Visualizza libri prenotati
+            </a>
+
+        </div>
+    </div>
+</div>

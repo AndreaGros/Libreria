@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Libreria.Core.Models
 {
-    internal class Libro
+    public class Libro
     {
         public int Id { get; set; }
         public string Titolo { get; set; }
