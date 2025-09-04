@@ -1,0 +1,34 @@
+﻿@model Libreria.Core.Models.Utente
+
+<h2>@ViewBag.Title</h2>
+
+<!-- Sezione per errori generici -->
+
+<form asp-action="Edit" method="post" class="mt-4">
+    <div class="mb-3">
+        <label asp-for="DataNascita" class="control-label"></label>
+        <input asp-for="DataNascita" class="form-control" type="date" />
+        <span asp-validation-for="DataNascita" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Cognome" class="form-label"></label>
+        <input asp-for="Cognome" class="form-control" />
+        <span asp-validation-for="Cognome" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Mail" class="form-label"></label>
+        <input asp-for="Mail" class="form-control" />
+        <span asp-validation-for="Mail" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Salva</button>
+    <a asp-action="Index" class="btn btn-secondary">Annulla</a>
+</form>

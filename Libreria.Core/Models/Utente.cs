@@ -9,7 +9,7 @@ namespace Libreria.Core.Models
     public class Utente
     {
         public int Id { get; set; }
-        public DateOnly DataNascita { get; set; }
+        public DateTime  DataNascita { get; set; }
         public string Nome { get; set; }
         public string Cognome { get; set; }
         public string Mail { get; set; }
