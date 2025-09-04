@@ -1,25 +1,16 @@
-﻿<div class="text-center">
+﻿@model Libreria.Core.Models.Prenotazione
+
+<div class="text-center">
     <h1 class="display-4">Prenota</h1>
     <p class="lead">Seleziona un'operazione da eseguire:</p>
 </div>
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <div class="list-group">
-
-            <h5 class="list-group-item list-group-item-dark">Prestito Libri</h5>
-            <a asp-page="/Prestiti/Crea" class="list-group-item list-group-item-action list-group-item-info">
-                📖 Gestisci un prestito
-            </a>
-
-            <h5 class="list-group-item list-group-item-dark mt-4">Prenotazione Libri</h5>
-            <a asp-page="/Prenotazioni/Crea" class="list-group-item list-group-item-action list-group-item-warning">
-                📝 Prenota un libro non disponibile
-            </a>
-            <a asp-page="/Prenotazioni/Index" class="list-group-item list-group-item-action list-group-item-secondary">
-                👀 Visualizza libri prenotati
-            </a>
-
+        <div class="mb-3">
+            <label asp-for="IdLibro" class="form-label">Libri prenotabili</label>
+            <select asp-for="IdLibro" asp-items="ViewBag.SelectLibri" class="form-select"></select>
+            <span asp-validation-for="IdLibro" class="text-danger"></span>
         </div>
     </div>
 </div>
