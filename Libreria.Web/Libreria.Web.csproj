@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DocX" Version="4.0.25105.5786" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Libreria.Core\Libreria.Core.csproj" />
     <ProjectReference Include="..\Libreria.Data\Libreria.Data.csproj" />
   </ItemGroup>
