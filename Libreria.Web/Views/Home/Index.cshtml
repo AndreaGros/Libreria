@@ -1,103 +1,39 @@
-﻿<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="utf-8" />
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/css/site.css" />
-    <!-- Google Fonts per un look più moderno -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+@section Styles {
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        header {
-            background-color: #4a90e2;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        section {
-            background-color: white;
+        section.contatti {
+            background-color: #ffffff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        section h2 {
-            margin-top: 0;
-            color: #4a90e2;
-        }
+            section.contatti h2 {
+                color: #4a90e2;
+            }
 
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #f1f1f1;
-            margin-top: 40px;
-        }
+            section.contatti a {
+                color: #4a90e2;
+                text-decoration: none;
+            }
+
+                section.contatti a:hover {
+                    text-decoration: underline;
+                }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Benvenuti alla Libreria</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a asp-controller="Utente" asp-action="Index">Utenti</a></li>
-                <li><a asp-controller="Prenotazione" asp-action="Index">Prenotazioni</a></li>
-                <li><a asp-controller="Prestito" asp-action="Index">Prestiti</a></li>
-                <li><a asp-controller="DocX" asp-action="GeneraLettereRichiamo">Lettere</a></li>
-            </ul>
-        </nav>
-    </header>
+}
 
-    <main>
-        <section>
-            <h2>Contattaci</h2>
-            <p>Email: <a href="mailto:info@libreria.it">info@libreria.it</a></p>
-            <p>Telefono: <a href="tel:+390123456789">+39 012 345 6789</a></p>
-        </section>
-    </main>
+<div class="text-center">
+    <h1 class="display-4 mb-4">Benvenuti alla Libreria</h1>
+</div>
 
-    <footer>
-        <p>&copy; 2025 Libreria. Tutti i diritti riservati.</p>
-    </footer>
-</body>
-</html>
+<main>
+    <section class="contatti mx-auto" style="max-width:600px;">
+        <h2>Contattaci</h2>
+        <p>Email: <a href="mailto:info@libreria.it">info@libreria.it</a></p>
+        <p>Telefono: <a href="tel:+390123456789">+39 012 345 6789</a></p>
+    </section>
+</main>
