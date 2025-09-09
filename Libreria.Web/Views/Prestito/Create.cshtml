@@ -5,30 +5,20 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-8">
-                    <div class="mb-3">
-                        <label asp-for="IdUtente" class="form-label">Utenti</label>
-                        <select asp-for="IdUtente" asp-items="ViewBag.SelectUtenti" class="form-select"></select>
-                        <span asp-validation-for="IdUtente" class="text-danger"></span>
-                    </div>
-                </div>
+            <div class="mb-3">
+                <label asp-for="IdUtente" class="form-label">Utenti</label>
+                <select asp-for="IdUtente" asp-items="ViewBag.SelectUtenti" class="form-select"></select>
+                <span asp-validation-for="IdUtente" class="text-danger"></span>
             </div>
 
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-8">
-                    <div class="mb-3">
-                        <label asp-for="IdLibro" class="form-label">Libri prenotabili</label>
-                        <select asp-for="IdLibro" asp-items="ViewBag.SelectLibri" class="form-select"></select>
-                        <span asp-validation-for="IdLibro" class="text-danger"></span>
-                    </div>
-                </div>
+            <div class="mb-3">
+                <label asp-for="IdLibro" class="form-label">Libri prenotabili</label>
+                <select asp-for="IdLibro" asp-items="ViewBag.SelectLibri" class="form-select"></select>
+                <span asp-validation-for="IdLibro" class="text-danger"></span>
             </div>
 
-
-            <div class="form-group mt-3">
-                <input type="submit" value="Crea" class="btn btn-primary" />
-            </div>
+            <input type="submit" value="Crea" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-secondary">Annulla</a>
         </form>
     </div>
 </div>

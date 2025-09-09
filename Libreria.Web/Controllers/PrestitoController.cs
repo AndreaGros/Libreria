@@ -31,7 +31,7 @@ namespace Libreria.Web.Controllers
         public IActionResult Create()
         {
             ViewBag.SelectUtenti = new SelectList(_repoUtenti.GetAll(), "Id", "Nome");
-            ViewBag.SelectLibri = new SelectList(_repoLibri.GetAll(), "Id", "Titolo");
+            ViewBag.SelectLibri = new SelectList(_repoLibri.GetAvaiables(), "Id", "Titolo");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace Libreria.Web.Controllers
             }
 
             ViewBag.SelectUtenti = new SelectList(_repoUtenti.GetAll(), "Id", "Nome");
-            ViewBag.SelectLibri = new SelectList(_repoLibri.GetNotAvaiables(), "Id", "Titolo");
+            ViewBag.SelectLibri = new SelectList(_repoLibri.GetAvaiables(), "Id", "Titolo");
 
             return View(prestito);
         }

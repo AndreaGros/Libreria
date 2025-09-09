@@ -7,16 +7,11 @@
     <div class="col-md-8">
         <div class="list-group">
 
-            <h5 class="list-group-item list-group-item-dark">Prestito Libri</h5>
-            <a asp-page="/Prestiti/Crea" class="list-group-item list-group-item-action list-group-item-info">
-                📖 Gestisci un prestito
-            </a>
-
             <h5 class="list-group-item list-group-item-dark mt-4">Prenotazione Libri</h5>
-            <a asp-controller="Prenotazione" asp-action="Create">
+            <a asp-controller="Prenotazione" asp-action="Create" class="list-group-item list-group-item-action list-group-item-info">
                 📝 Prenota un libro non disponibile
             </a>
-            <a asp-controller="Prenotazione" asp-action="All">
+            <a asp-controller="Prenotazione" asp-action="All" class="list-group-item list-group-item-action list-group-item-info">
                 👀 Visualizza libri prenotati
             </a>
 

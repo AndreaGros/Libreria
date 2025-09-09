@@ -6,9 +6,8 @@
         <tr>
             <th>Id</th>
             <th>Nome</th>
-            <th>Cognome</th>
-            <th>Email</th>
-            <th>Azioni</th>
+            <th>Id Utente</th>
+            <th>Id Libro</th>
         </tr>
 
     </thead>
@@ -20,12 +19,8 @@
                 <td>@utente.LibroPrenotato</td>
                 <td>@utente.IdUtente</td>
                 <td>@utente.IdLibro</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@utente.Id" class="btn btn-info btn-sm">Dettagli</a>
-                    <a asp-action="Edit" asp-route-id="@utente.Id" class="btn btn-warning btn-sm">Modifica</a>
-                    <a asp-action="Delete" asp-route-id="@utente.Id" class="btn btn-danger btn-sm">Elimina</a>
-                </td>
             </tr>
         }
     </tbody>
 </table>
+<a asp-action="Index" class="btn btn-secondary">Annulla</a>

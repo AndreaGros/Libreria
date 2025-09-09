@@ -50,8 +50,24 @@ namespace Libreria.Data
 
         public List<Libro> GetNotAvaiables()
         {
-            List < Libro > libri = new List<Libro>();
-            string query = "SELECT DISTINCT * FROM Libri l JOIN prestiti p ON l.Id = p.IdLibro;";
+            List<Libro> libri = new List<Libro>();
+            string query = "SELECT DISTINCT l.Id, l.Titolo FROM Libri l JOIN Prestiti p ON l.Id = p.IdLibro;";
+            using var reader = _db.ExecuteReader(query);
+            while (reader.Read())
+            {
+                libri.Add(new Libro
+                {
+                    Id = reader.GetInt32(0),
+                    Titolo = reader.GetString(1),
+                });
+            }
+            return libri;
+        }
+
+        public List<Libro> GetAvaiables()
+        {
+            List<Libro> libri = new List<Libro>();
+            string query = "SELECT l.Id, l.Titolo FROM Libri l LEFT JOIN Prestiti p ON l.Id = p.IdLibro WHERE p.IdLibro IS NULL;";
             using var reader = _db.ExecuteReader(query);
             while (reader.Read())
             {
